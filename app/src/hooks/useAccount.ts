@@ -14,7 +14,14 @@ export const useAccount = (json: any) => {
     listWishList: [],
     listwatchList: [],
     itemsData: [],
-    location: useLocation(),
+  });
+  const queryParams: { [key: string]: string } = {};
+  
+  let location = useLocation();
+  let params = new URLSearchParams(location.search);
+
+  params.forEach((value, key) => {
+    queryParams[key] = value;
   });
 
   useEffect(() => {
@@ -172,5 +179,8 @@ export const useAccount = (json: any) => {
     return () => { mounted = false };
   }, [state.listWishList]);
 
-  return state;
+  return {
+    ...state,
+    queryParams
+  };
 };

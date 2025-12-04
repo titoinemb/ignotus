@@ -7,17 +7,10 @@ import { Props } from '@types';
 import { useAccount } from "../../hooks/useAccount";
 
 export const Account: React.FC<Props> = ({ json, lang }) => {
-  const { error, idsession, itemsData, listWishList, listwatchList, loading, premiumStatut, sessionsHtml, storageId, location } = useAccount(json);
+  const { error, idsession, itemsData, listWishList, listwatchList, loading, premiumStatut, sessionsHtml, storageId, queryParams } = useAccount(json);
 
   if (loading) return <Loading />;
   if (error === true) return <Error500 lang={lang} json={json} />;
-
-  let params = new URLSearchParams(location.search);
-  let queryParams: { [key: string]: string } = {};
-
-  params.forEach((value, key) => {
-    queryParams[key] = value;
-  });
 
   if (!idsession) {
     if (!queryParams.i) {

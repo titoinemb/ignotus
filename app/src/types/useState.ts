@@ -35,7 +35,6 @@ export type AccountState = {
   listWishList: any[];
   listwatchList: any[];
   itemsData: ItemResponse[] | [];
-  location: any;
 };
 
 export type ItemState = {

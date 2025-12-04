@@ -12,7 +12,7 @@ export const session = async (session: string, username: string): Promise<1 | 0>
 
     if (!response.ok || !datarep) return 0;
 
-    if (datarep.msg !== "1") return 0;
+    if (datarep.message !== "1") return 0;
 
     return 1;
   } catch (e) {

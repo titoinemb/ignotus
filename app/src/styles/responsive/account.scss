@@ -1,0 +1,16 @@
+@media (max-width: 600px) {
+  .app {
+    .title,
+    .desc {
+      text-align: center;
+    }
+    
+    .words {
+      grid-template-columns: 1fr !important;
+
+      input {
+        width: auto;
+      }
+    }
+  }
+}

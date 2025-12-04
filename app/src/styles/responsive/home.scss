@@ -1,0 +1,103 @@
+@media (max-width: 700px) {
+  .app {
+    .top {
+      .info {
+        margin: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        height: 100% !important;
+        width: 100% !important;
+        bottom: 5vh !important;
+
+        .title {
+          font-size: 2em !important;
+        }
+
+        p.description {
+          width: 100% !important;
+          max-width: none !important;
+          text-align: center !important;
+          box-sizing: border-box !important;
+          word-wrap: break-word !important;
+          font-size: 6vw !important;
+        }
+
+        .etc {
+          align-items: center !important;
+          flex-direction: column !important;
+          align-content: center !important;
+
+          .genre {
+            margin-top: 5px;
+            margin-bottom: 5px;
+          }
+        }
+
+        .btn {
+          margin-top: 10px !important;
+
+          button {
+            font-size: 2.68vh !important;
+          }
+        }
+      }
+    }
+
+    .mid {
+      .section {
+        .list {
+          overflow: auto !important;
+          overflow-x: auto !important;
+
+          .btnscroll {
+            display: none !important;
+          }
+
+          ul {
+            li {
+              margin-right: 15px !important;
+              #linkId {
+
+                .image {
+                  width: 100px !important;
+                  height: 190px !important;
+
+                  img {
+                    transform: translate(-50%, -50%) scale(0.27) !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .genre {
+        .list,
+        ul {
+          height: 100% !important;
+        }
+
+        .list {
+          ul {
+            display: grid !important;
+            li {
+              #linkId {
+                margin: 0.4vh!important;
+
+                .genreImage {
+                  img {
+                    width: 35vh !important;
+                    height: auto !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+@use "./var.scss";
+@import "./responsive/search.scss";
+
+.search {
+  margin: 50px;
+  margin-top: 100px;
+
+  .mid {
+    margin-top: 20px;
+
+    ul,
+    li {
+      display: flex;
+    }
+
+    ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      
+
+      li {
+        margin-top: 20px;
+        margin-right: 25px;
+
+        .image {
+          border-radius: 10px;
+          width: 190px;
+          height: 300px;
+          overflow: hidden;
+          position: relative;
+
+          .imge2,
+          .image2 img {
+            top: 270px !important;
+          }
+
+          .image2 {
+            position: relative;
+            pointer-events: none;
+            left: 50%;
+            transform: translateX(-50%);
+
+            img {
+              height: 15vh;
+              width: auto;
+              max-width: 100%;
+              object-fit: contain;
+            }
+          }
+
+          img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%) scale(0.4);
+            transition: transform 0.5s ease;
+            z-index: -1;
+          }
+
+          &:hover img {
+            transform: translate(-50%, -50%) scale(0.5);
+          }
+        }
+      }
+    }
+  }
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+
+    .title {
+      font-size: 2.5rem;
+      color: var.$royalClair;
+    }
+
+    .searching {
+      margin-top: 30px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: row;
+
+
+      svg {
+        position: absolute;
+        left: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@use "../var.scss";
+
+input[type="range"] {
+  -webkit-appearance: none;
+  background: linear-gradient(to right,
+    var.$royalClair 0%,
+    var.$royalClair var(--current-time, 0%),
+    #777 var(--current-time, 0%),
+    #777 100%);
+  cursor: pointer;
+  height: 3px;
+  margin: 0;
+  transition: 0.1s ease-in;
+  vertical-align: bottom;
+  width: 100%;
+  border-radius: 2.5px;
+}
+.timeinput:hover input[type="range"],
+.timeinput.hover input[type="range"] { height: 8px; }
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: var.$royalDark;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 5px var.$royalDark;
+  height: 0;
+  transition: 0.1s ease-in;
+  width: 0;
+}
+.timeinput:hover input[type="range"]::-webkit-slider-thumb,
+.timeinput.hover input[type="range"]::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+}
+
+.loaded input[type="range"],
+.loaded input[type="range"]::-webkit-slider-thumb {
+  transition: 0.1s ease-in;
+}
+
+:focus {
+  outline: none;
+}

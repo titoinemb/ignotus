@@ -1,0 +1,148 @@
+@use "./var.scss";
+@import "./responsive/header.scss";
+
+header {
+  z-index: 99;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  .box {
+    display: none;
+    right: 0;
+    position: absolute;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.29);
+    border-radius: 7px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 15px;
+    margin-right: 15px;
+
+
+    ul,
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      align-content: flex-start;
+
+      #linkId {
+        margin-top: 2.5px;
+        font-size: 18px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        align-content: center;
+
+        svg {
+          margin-right: 2.5px;
+        }
+
+        &:hover {
+          color: rgb(209, 208, 208) !important;
+
+          svg {
+            fill: rgb(209, 208, 208) !important;
+
+            .cls1 {
+              stroke: rgb(209, 208, 208) !important;
+            }
+
+            .path {
+              fill: rgb(209, 208, 208) !important;
+            }
+          }
+        }
+      }
+    }
+
+    .cls1 {
+      fill: none;
+      stroke: #fff;
+      stroke-miterlimit: 10;
+      stroke-width: 1.91px;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+
+    .right {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .logo {
+        pointer-events: none;
+      }
+
+      .list {
+        ul {
+          li {
+            margin-left: 15px;
+
+            #linkId {
+              transition: 0.5s;
+
+              &:hover {
+                color: var.$royalClair !important;
+              }
+            }
+          }
+        }
+
+        ul,
+        li {
+          display: flex;
+        }
+      }
+    }
+
+    .left {
+
+      ul,
+      li {
+        display: flex;
+      }
+
+      ul {
+        li {
+          margin-left: 15px;
+        }
+
+        li {
+          button {
+            cursor: pointer;
+            padding: 7px 15px;
+            /* From https://css.glass */
+            background: rgba(255, 255, 255, 0.29);
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5.4px);
+            -webkit-backdrop-filter: blur(5.4px);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+
+            &:hover {
+              background: rgba(100, 99, 99, 0.5);
+              box-shadow: 0 6px 40px rgba(0, 0, 0, 0.2);
+              transition: background 0.3s, box-shadow 0.3s;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  button {
+    border: none;
+    background: none;
+  }
+}

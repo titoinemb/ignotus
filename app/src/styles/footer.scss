@@ -1,0 +1,117 @@
+@use "./var.scss";
+@import "./responsive/footer.scss";
+
+footer {
+  background-color: rgb(3, 3, 3);
+  padding: 50px;
+
+  .downloadapp {
+    margin: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      color: var.$royalClair;
+      font-size: 2.5rem;
+      display: none;
+    }
+
+    .list {
+      display: flex;
+
+      div {
+        margin: 15px;
+
+        .windows:hover {
+          transition: 0.5s;
+          fill: #367EC7;
+        }
+
+        .linux:hover {
+          transition: 0.5s;
+          fill: #ffff00;
+        }
+
+        .ios:hover {
+          transition: 0.5s;
+          fill: #fc3158;
+        }
+
+        .android:hover {
+          transition: 0.5s;
+          fill: #a4c639;
+        }
+      }
+    }
+  }
+
+  .network {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+    #linkId {
+
+      svg {
+        transition: 0.7s;
+
+        &:hover {
+          fill: #7D4698 !important;
+        }
+      }
+
+      .net2 {
+        transition: 0.7s;
+        margin-left: 15px;
+
+        &:hover {
+          fill: #436228 !important;
+        }
+      }
+    }
+  }
+
+  .box2 {
+    margin-top: 10px;
+  }
+
+  .box {
+
+    .title {
+      display: flex;
+      align-items: flex-end;
+      flex-direction: row;
+      font-size: 20px;
+    }
+
+    .desc {
+      font-size: 18px;
+      margin-top: 10px;
+      max-width: 600px;
+      color: rgb(165 162 162);
+    }
+
+    .listlink {
+      padding-top: 10px;
+
+      ul,
+      li {
+        display: flex;
+        flex-direction: row;
+      }
+
+      #linkId {
+        margin-left: 5px;
+        margin-top: 5px;
+        font-size: 18px;
+
+        &:hover {
+          color: var.$royalClair !important;
+        }
+      }
+    }
+  }
+}

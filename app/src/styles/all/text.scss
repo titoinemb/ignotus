@@ -1,0 +1,19 @@
+input[type="text"] {
+  background: rgba(255, 255, 255, 0.29);
+  border-radius: 7px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.4px);
+  -webkit-backdrop-filter: blur(5.4px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 12px;
+  padding-left: 40px;
+  font-size: 20px;
+  width: 70dvh;
+
+  &:hover,
+  &:focus {
+    background: rgba(100, 99, 99, 0.5);
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+}

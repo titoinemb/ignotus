@@ -1,0 +1,11 @@
+@media (max-width: 700px) {
+  footer {
+    .box2 {
+      .listlink {
+        ul {
+          flex-direction: column !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,213 @@
+@use "./var.scss";
+@import "./responsive/account.scss";
+
+.app {
+  margin: 100px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title {
+    font-size: 2.5rem;
+    color: var.$royalClair;
+  }
+
+  .words2 {
+    margin-top: 15px;
+  }
+
+  .desc {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  button {
+    margin-top: 20px;
+  }
+
+  .create {
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    transition: 0.5s;
+
+    &:hover {
+      color: var.$royalClair !important;
+    }
+  }
+
+  .security {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1.7rem;
+  }
+
+  .save {
+    color: orangered;
+    display: none;
+    margin: 10px;
+  }
+
+  .saveok {
+    margin-top: 5px;
+    color: var.$royalClair;
+    display: none;
+  }
+
+  .error {
+    color: orangered;
+    margin-top: 10px;
+    display: none;
+  }
+}
+
+.app2 {
+  margin: 90px;
+
+  .title {
+    font-size: 2rem;
+    color: var.$royalClair;
+  }
+
+  .sec {
+    margin-top: 15px;
+    margin-left: 15px;
+
+    .title {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      margin-top: 10px;
+
+      .linkId {
+        margin: 10px;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: var.$royalClair;
+        transition: 0.4s;
+        width: 200px;
+        cursor: pointer;
+
+        .id {
+          font-size: 0.8rem;
+          max-width: 250px;
+          word-wrap: break-word;
+        }
+
+        &:hover {
+          background-color: var.$royalDark;
+        }
+      }
+    }
+
+    .wishlist,
+    ul, 
+    li {
+      display: flex;
+    }
+
+    .wishlist {
+      margin: 10px 0 0 0;
+
+      .btnscroll {
+        background: rgba(255, 255, 255, 0.29);
+        border-radius: 10px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5.4px);
+        -webkit-backdrop-filter: blur(5.4px);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        padding: 10px;
+        font-size: 17px;
+        cursor: pointer;
+        position: absolute;
+        margin-left: 50px;
+        height: 170px;
+        margin-top: 50px;
+        z-index: 2;
+
+        &:hover {
+          background: rgba(100, 99, 99, 0.5);
+          box-shadow: 0 6px 40px rgba(0, 0, 0, 0.2);
+          transition: background 0.3s, box-shadow 0.3s;
+        }
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        li {
+          margin: 10px;
+
+          .image {
+            border-radius: 10px;
+            width: 190px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+
+            .imge2,
+            .image2 img {
+              top: 270px !important;
+            }
+
+            .image2 {
+              position: relative;
+              pointer-events: none;
+              left: 50%;
+              transform: translateX(-50%);
+
+              img {
+                height: 15vh;
+                width: auto;
+                max-width: 100%;
+                object-fit: contain;
+              }
+            }
+
+            img {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: auto;
+              height: auto;
+              min-width: 100%;
+              min-height: 100%;
+              object-fit: cover;
+              transform: translate(-50%, -50%) scale(0.4);
+              transition: transform 0.5s ease;
+              z-index: -1;
+            }
+
+            &:hover img {
+              transform: translate(-50%, -50%) scale(0.5);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .premium,
+  .session {
+    display: flex;
+    align-items: center;
+
+    .statut {
+      font-size: 18px;
+      color: var.$royalClair;
+      margin-right: 10px;
+    }
+  }
+
+  button {
+    margin-top: 50px;
+    font-size: 15px;
+  }
+}

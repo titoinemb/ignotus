@@ -1,0 +1,43 @@
+@media (max-width: 999px) {
+  .item {
+    .top {
+      .info {
+        width: 100%;
+        height: 100%;
+        margin: 0 !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+        .txt {
+          padding: 0 !important;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .title {
+            font-size: 7vw !important;
+          }
+
+          .description {
+            max-width: 90vw !important;
+          }
+
+          .plus {
+            ul {
+              li {
+                .note,
+                .genre {
+                  font-size: 15px !important;
+                }
+              }
+            }
+          }
+        }
+
+        .image {
+          display: none;
+        }
+      }
+    }
+  }
+}

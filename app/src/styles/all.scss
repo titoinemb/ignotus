@@ -1,0 +1,21 @@
+@use "./var.scss";
+@import "./all/buttons.scss";
+@import "./all/scroll.scss";
+@import "./all/range.scss";
+@import "./all/text.scss";
+@import "./all/select.scss";
+
+body {
+  background-color: var.$background;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  user-select: none !important;
+  outline: none !important;
+  caret-color: var.$royalClair;
+}

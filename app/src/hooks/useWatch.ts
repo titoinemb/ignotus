@@ -94,7 +94,7 @@ export const useWatch = (lang: string) => {
           setState(prevState => ({ ...prevState, settings: JSON.parse(localStorage.getItem('setting') as string )}));
         };
 
-        let CCStorage = JSON.parse(localStorage.getItem('setting') as string).cc;
+        //let CCStorage = JSON.parse(localStorage.getItem('setting') as string).cc;
 
         //if (CCStorage !== "null") await setState(prevState => ({ ...prevState, mySrt: `http://localhost/files/${datarep.data.data?.[lang].cc}` }));
 
@@ -111,7 +111,7 @@ export const useWatch = (lang: string) => {
         setState(prevState => ({ ...prevState, loading: false }));
       };
     })();
-  }, [queryParams.i, queryParams.t, queryParams.e, queryParams.s, lang]);
+  }, [queryParams.i, queryParams.t, queryParams.e, queryParams.s, lang, state.quality]);
 
   useEffect(() => {
     let video = document.getElementById("video-player") as HTMLVideoElement;

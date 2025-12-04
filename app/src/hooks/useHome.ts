@@ -49,7 +49,7 @@ export const useHome = () => {
     };
 
     fetchData();
-  }, []);
+  }, [state]);
 
   return state;
 };

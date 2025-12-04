@@ -21,19 +21,18 @@
     "jsx": "react-jsx",
     "typeRoots": [
       "./node_modules/@types",
-      "./src/@types"
     ],
     "baseUrl": ".",
     "paths": {
       "@features": ["src/components/features"],
       "@types": ["src/types"],
       "@layout": ["src/components/layout"],
-      "@services/*": ["src/services/*"],
       "@functions": ["src/functions"],
-      "@styles/*": ["src/styles/*"],
+      "@hooks": ["src/hooks"]
     }
   },
   "include": [
-    "src"
-, "langs"  ]
+    "src",
+    "langs"
+  ]
 }

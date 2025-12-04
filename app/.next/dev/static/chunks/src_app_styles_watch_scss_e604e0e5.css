@@ -1,0 +1,116 @@
+/* [project]/src/app/styles/watch.scss.css [app-client] (css) */
+header, footer {
+  display: none !important;
+}
+
+body, html, #root, .video-player, #video-player {
+  width: 100%;
+  height: 100%;
+}
+
+.video-player video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.video-player .controls {
+  z-index: 3;
+  background-color: #000000c7;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+.video-player .controls #paramBox {
+  -webkit-backdrop-filter: blur(5.4px);
+  background: #ffffff4a;
+  border: 1px solid #ffffff29;
+  border-radius: 7px;
+  margin-right: 15px;
+  padding: 15px;
+  display: none;
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  box-shadow: 0 4px 30px #0000001a;
+}
+
+.video-player .controls #paramBox .box2 {
+  flex-direction: column;
+}
+
+.video-player .controls #paramBox .box2 .title {
+  margin-bottom: 15px;
+  margin-right: 20px;
+  font-size: 25px;
+}
+
+.video-player .controls #paramBox .box2 .title svg {
+  transform: rotate(180deg);
+}
+
+.video-player .controls #paramBox .box2 #linkId {
+  justify-content: flex-start !important;
+}
+
+.video-player .controls #paramBox ul, .video-player .controls #paramBox li {
+  flex-direction: column;
+  display: flex;
+}
+
+.video-player .controls #paramBox ul li div {
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 18px;
+  display: flex;
+}
+
+.video-player .controls #paramBox ul li div .option {
+  align-items: center;
+  margin-left: 20px;
+}
+
+.video-player .controls #paramBox ul li div .option .txt {
+  color: gray;
+}
+
+.video-player .controls .bottom {
+  width: calc(100% - 40px);
+  margin: 15px 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.video-player .controls .bottom .timeinput, .video-player .controls .bottom .timeinput > input {
+  width: 100%;
+}
+
+.video-player .controls .bottom .time {
+  font-size: 13px;
+}
+
+.video-player .controls .bottom .btnlist {
+  justify-content: space-between;
+  margin-top: 10px;
+  display: flex;
+}
+
+.video-player .controls .bottom .btnlist button {
+  padding: 5px 10px;
+  display: block;
+}
+
+.video-player .controls .bottom .btnlist .secbtn {
+  margin-left: 5px;
+}
+
+.video-player .controls .bottom .btnlist .left, .video-player .controls .bottom .btnlist .right {
+  display: flex;
+}
+
+/*# sourceMappingURL=src_app_styles_watch_scss_e604e0e5.css.map*/

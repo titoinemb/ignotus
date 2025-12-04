@@ -1,7 +1,7 @@
 import React from 'react';
 import { SubTitleProps } from "@types";
-import { sanitizeSubtitleHtml } from "../../../functions";
-import { useSubtitles } from "../../../hooks/useSubTitle";
+import { sanitizeSubtitleHtml } from "../../functions";
+import { useSubtitles } from "../../hooks/useSubTitle";
 import "../../styles/subTitle.scss";
 
 export const SubTitle: React.FC<SubTitleProps> = ({videoId, srt, srtUrl, offset = 0, className}) => {

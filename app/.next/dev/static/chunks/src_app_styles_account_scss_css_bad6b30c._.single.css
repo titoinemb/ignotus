@@ -1,0 +1,221 @@
+/* [project]/src/app/styles/account.scss.css [app-client] (css) */
+@media (max-width: 600px) {
+  .app .title, .app .desc {
+    text-align: center;
+  }
+
+  .app .words {
+    grid-template-columns: 1fr !important;
+  }
+
+  .app .words input {
+    width: auto;
+  }
+}
+
+.app {
+  flex-direction: column;
+  align-items: center;
+  margin: 100px 50px;
+  display: flex;
+}
+
+.app .title {
+  color: #2754dd;
+  font-size: 2.5rem;
+}
+
+.app .words2 {
+  margin-top: 15px;
+}
+
+.app .desc {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.app button {
+  margin-top: 20px;
+}
+
+.app .create {
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: .9rem;
+  transition: all .5s;
+}
+
+.app .create:hover {
+  color: #2754dd !important;
+}
+
+.app .security {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 1.7rem;
+}
+
+.app .save {
+  color: #ff4500;
+  margin: 10px;
+  display: none;
+}
+
+.app .saveok {
+  color: #2754dd;
+  margin-top: 5px;
+  display: none;
+}
+
+.app .error {
+  color: #ff4500;
+  margin-top: 10px;
+  display: none;
+}
+
+.app2 {
+  margin: 90px;
+}
+
+.app2 .title {
+  color: #2754dd;
+  font-size: 2rem;
+}
+
+.app2 .sec {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.app2 .sec .title {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.app2 .sec .items {
+  flex-flow: wrap;
+  margin-top: 10px;
+  display: flex;
+}
+
+.app2 .sec .items .linkId {
+  cursor: pointer;
+  background-color: #2754dd;
+  border-radius: 10px;
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  transition: all .4s;
+}
+
+.app2 .sec .items .linkId .id {
+  word-wrap: break-word;
+  max-width: 250px;
+  font-size: .8rem;
+}
+
+.app2 .sec .items .linkId:hover {
+  background-color: #132c77;
+}
+
+.app2 .sec .wishlist, .app2 .sec ul, .app2 .sec li {
+  display: flex;
+}
+
+.app2 .sec .wishlist {
+  margin: 10px 0 0;
+}
+
+.app2 .sec .wishlist .btnscroll {
+  -webkit-backdrop-filter: blur(5.4px);
+  cursor: pointer;
+  z-index: 2;
+  background: #ffffff4a;
+  border: 1px solid #ffffff29;
+  border-radius: 10px;
+  height: 170px;
+  margin-top: 50px;
+  margin-left: 50px;
+  padding: 10px;
+  font-size: 17px;
+  position: absolute;
+  box-shadow: 0 4px 30px #0000001a;
+}
+
+.app2 .sec .wishlist .btnscroll:hover {
+  background: #64636380;
+  transition: background .3s, box-shadow .3s;
+  box-shadow: 0 6px 40px #0003;
+}
+
+.app2 .sec .wishlist ul {
+  flex-wrap: wrap;
+  justify-content: center;
+  display: flex;
+}
+
+.app2 .sec .wishlist ul li {
+  margin: 10px;
+}
+
+.app2 .sec .wishlist ul li .image {
+  border-radius: 10px;
+  width: 190px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.app2 .sec .wishlist ul li .image .imge2, .app2 .sec .wishlist ul li .image .image2 img {
+  top: 270px !important;
+}
+
+.app2 .sec .wishlist ul li .image .image2 {
+  pointer-events: none;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.app2 .sec .wishlist ul li .image .image2 img {
+  object-fit: contain;
+  width: auto;
+  max-width: 100%;
+  height: 15vh;
+}
+
+.app2 .sec .wishlist ul li .image img {
+  object-fit: cover;
+  z-index: -1;
+  width: auto;
+  min-width: 100%;
+  height: auto;
+  min-height: 100%;
+  transition: transform .5s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)scale(.4);
+}
+
+.app2 .sec .wishlist ul li .image:hover img {
+  transform: translate(-50%, -50%)scale(.5);
+}
+
+.app2 .premium, .app2 .session {
+  align-items: center;
+  display: flex;
+}
+
+.app2 .premium .statut, .app2 .session .statut {
+  color: #2754dd;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.app2 button {
+  margin-top: 50px;
+  font-size: 15px;
+}
+
+/*# sourceMappingURL=src_app_styles_account_scss_css_bad6b30c._.single.css.map*/

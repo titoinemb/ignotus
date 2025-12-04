@@ -1,0 +1,115 @@
+/* [project]/src/app/styles/footer.scss.css [app-client] (css) */
+@media (max-width: 700px) {
+  footer .box2 .listlink ul {
+    flex-direction: column !important;
+  }
+}
+
+footer {
+  background-color: #030303;
+  padding: 50px;
+}
+
+footer .downloadapp {
+  flex-direction: column;
+  align-items: center;
+  margin: 80px;
+  display: flex;
+}
+
+footer .downloadapp .title {
+  color: #2754dd;
+  font-size: 2.5rem;
+  display: none;
+}
+
+footer .downloadapp .list {
+  display: flex;
+}
+
+footer .downloadapp .list div {
+  margin: 15px;
+}
+
+footer .downloadapp .list div .windows:hover {
+  fill: #367ec7;
+  transition: all .5s;
+}
+
+footer .downloadapp .list div .linux:hover {
+  fill: #ff0;
+  transition: all .5s;
+}
+
+footer .downloadapp .list div .ios:hover {
+  fill: #fc3158;
+  transition: all .5s;
+}
+
+footer .downloadapp .list div .android:hover {
+  fill: #a4c639;
+  transition: all .5s;
+}
+
+footer .network {
+  place-content: center;
+  align-items: center;
+  margin-top: 20px;
+  display: flex;
+}
+
+footer .network #linkId svg {
+  transition: all .7s;
+}
+
+footer .network #linkId svg:hover {
+  fill: #7d4698 !important;
+}
+
+footer .network #linkId .net2 {
+  margin-left: 15px;
+  transition: all .7s;
+}
+
+footer .network #linkId .net2:hover {
+  fill: #436228 !important;
+}
+
+footer .box2 {
+  margin-top: 10px;
+}
+
+footer .box .title {
+  flex-direction: row;
+  align-items: flex-end;
+  font-size: 20px;
+  display: flex;
+}
+
+footer .box .desc {
+  color: #a5a2a2;
+  max-width: 600px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+footer .box .listlink {
+  padding-top: 10px;
+}
+
+footer .box .listlink ul, footer .box .listlink li {
+  flex-direction: row;
+  display: flex;
+}
+
+footer .box .listlink #linkId {
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size: 18px;
+}
+
+footer .box .listlink #linkId:hover {
+  color: #2754dd !important;
+}
+
+/*# sourceMappingURL=src_app_styles_footer_scss_ac863fba.css.map*/

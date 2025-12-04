@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///media/a/Dev/ignotus/app/src/app/components/layout/Loading.tsx"],"sourcesContent":["import React from 'react';\r\nimport '../../styles/loading.scss';\r\n\r\nexport const Loading: React.FC = () => {\r\n  return (\r\n    <div className='loadingBox'>\r\n      <div className=\"custom-loader\"></div>\r\n    </div>\r\n  );\r\n};"],"names":["React","Loading","FC","$","_c","$i","Symbol","for","t0"],"mappings":";;;;;;;;;AAGO,gBAA0BC,CAAA;IAAA,MAAAE,CAAA,OAAAC,gLAAA,EAAA;IAAA,IAAAD,CAAA,CAAA,EAAA,KAAA,oEAAA;QAAA,IAAA,IAAAE,EAAA,GAAA,GAAAA,EAAA,GAAA,GAAAA,EAAA,IAAA,EAAA;YAAAF,CAAA,CAAAE,EAAA,CAAA,GAAAC,MAAA,CAAAC,GAAA,CAAA;QAAA;QAAAJ,CAAA,CAAA,EAAA,GAAA;IAAA;IAAA,IAAAK,EAAA;IAAA,IAAAL,CAAA,CAAA,EAAA,KAAAG,MAAA,CAAAC,GAAA,CAAA,8BAAA;QAE7BC,EAAA,iBAAA,6LAAA,GAEM;YAFS,SAAY,EAAZ,YAAY;oCACzB,6LAAA,GAAqC;gBAAtB,SAAe,EAAf,eAAe,GAChC,EAFA,GAEM;;;;;;;;;;;QAAAL,CAAA,CAAA,EAAA,GAAAK,EAAA;IAAA,OAAA;QAAAA,EAAA,GAAAL,CAAA,CAAA,EAAA;IAAA;IAAA,OAFNK,EAEM;AAAA,CAET;KANYP,OAAO,EAAED,KAAK,CAACE,EAAE","ignoreList":[]}}]
+}

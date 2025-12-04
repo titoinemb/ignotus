@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///media/a/Dev/ignotus/app/src/app/components/layout/Loading.tsx"],"sourcesContent":["import React from 'react';\r\nimport '../../styles/loading.scss';\r\n\r\nexport const Loading: React.FC = () => {\r\n  return (\r\n    <div className='loadingBox'>\r\n      <div className=\"custom-loader\"></div>\r\n    </div>\r\n  );\r\n};"],"names":[],"mappings":";;;;;;;AAGO,MAAM,UAAoB;IAC/B,qBACE,8OAAC;QAAI,WAAU;kBACb,cAAA,8OAAC;YAAI,WAAU;;;;;;;;;;;AAGrB"}}]
+}

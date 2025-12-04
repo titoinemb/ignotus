@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from 'react';
 import { SearchSate } from "@types";
 import { useLocation } from 'react-router-dom';

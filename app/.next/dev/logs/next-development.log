@@ -1,10 +1,180 @@
-[00:00:00.857] Server  LOG      ✓ Ready in 641ms
-[00:00:04.334] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:07.684] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:28.455] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:43.408] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:45.357] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:58.288] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:21.956] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:29.877] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:40.663] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:00.879] Server  LOG      ✓ Ready in 655ms
+[00:00:05.382] Server  LOG      ○ Compiling / ...
+[00:00:06.439] Server  WARN     ⚠ ./src/app/styles/footer.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 1, column 8 of file:///media/a/Dev/ignotus/app/src/app/styles/footer.scss:1:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+1 | @import "./responsive/footer.scss";
+
+
+src/app/styles/footer.scss 2:9  root stylesheet
+
+
+
+[00:00:06.440] Server  WARN     ⚠ ./src/app/styles/header.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 1, column 8 of file:///media/a/Dev/ignotus/app/src/app/styles/header.scss:1:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+1 | @import "./responsive/header.scss";
+
+
+src/app/styles/header.scss 2:9  root stylesheet
+
+
+
+[00:00:06.440] Server  WARN     ⚠ ./src/app/styles/home.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 1, column 8 of file:///media/a/Dev/ignotus/app/src/app/styles/home.scss:1:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+1 | @import "./responsive/home.scss";
+
+
+src/app/styles/home.scss 2:9  root stylesheet
+
+
+
+[00:00:06.614] Server  ERROR    ⨯ TypeError: Cannot read properties of undefined (reading 'header')
+[00:00:06.619] Server  ERROR    ⨯ TypeError: Cannot read properties of undefined (reading 'footer')
+[00:00:06.992] Server  ERROR    ⨯ ReferenceError: document is not defined
+[00:00:07.265] Server  WARN     ⚠ ./src/app/styles/footer.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 1, column 8 of file:///media/a/Dev/ignotus/app/src/app/styles/footer.scss:1:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+1 | @import "./responsive/footer.scss";
+
+
+src/app/styles/footer.scss 2:9  root stylesheet
+
+
+
+[00:00:07.266] Server  WARN     ⚠ ./src/app/styles/header.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 1, column 8 of file:///media/a/Dev/ignotus/app/src/app/styles/header.scss:1:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+1 | @import "./responsive/header.scss";
+
+
+src/app/styles/header.scss 2:9  root stylesheet
+
+
+
+[00:00:07.266] Server  WARN     ⚠ ./src/app/styles/home.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 1, column 8 of file:///media/a/Dev/ignotus/app/src/app/styles/home.scss:1:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+1 | @import "./responsive/home.scss";
+
+
+src/app/styles/home.scss 2:9  root stylesheet
+
+
+
+[00:00:07.297] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:07.297] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'header')
+[00:00:37.776] Server  WARN     ⚠ ./src/app/styles/footer.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 1, column 8 of file:///media/a/Dev/ignotus/app/src/app/styles/footer.scss:1:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+1 | @import "./responsive/footer.scss";
+
+
+src/app/styles/footer.scss 2:9  root stylesheet
+
+
+
+[00:00:37.776] Server  WARN     ⚠ ./src/app/styles/header.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 1, column 8 of file:///media/a/Dev/ignotus/app/src/app/styles/header.scss:1:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+1 | @import "./responsive/header.scss";
+
+
+src/app/styles/header.scss 2:9  root stylesheet
+
+
+
+[00:00:37.777] Server  WARN     ⚠ ./src/app/styles/home.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 1, column 8 of file:///media/a/Dev/ignotus/app/src/app/styles/home.scss:1:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+1 | @import "./responsive/home.scss";
+
+
+src/app/styles/home.scss 2:9  root stylesheet
+
+
+
+[00:00:37.847] Server  ERROR    ⨯ TypeError: Cannot read properties of undefined (reading 'header')
+[00:00:37.850] Server  ERROR    ⨯ TypeError: Cannot read properties of undefined (reading 'footer')
+[00:00:38.159] Server  ERROR    ⨯ ReferenceError: document is not defined
+[00:00:38.361] Server  WARN     ⚠ ./src/app/styles/footer.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 1, column 8 of file:///media/a/Dev/ignotus/app/src/app/styles/footer.scss:1:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+1 | @import "./responsive/footer.scss";
+
+
+src/app/styles/footer.scss 2:9  root stylesheet
+
+
+
+[00:00:38.361] Server  WARN     ⚠ ./src/app/styles/header.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 1, column 8 of file:///media/a/Dev/ignotus/app/src/app/styles/header.scss:1:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+1 | @import "./responsive/header.scss";
+
+
+src/app/styles/header.scss 2:9  root stylesheet
+
+
+
+[00:00:38.361] Server  WARN     ⚠ ./src/app/styles/home.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 1, column 8 of file:///media/a/Dev/ignotus/app/src/app/styles/home.scss:1:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+1 | @import "./responsive/home.scss";
+
+
+src/app/styles/home.scss 2:9  root stylesheet
+
+
+
+[00:00:38.381] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:38.381] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'header')

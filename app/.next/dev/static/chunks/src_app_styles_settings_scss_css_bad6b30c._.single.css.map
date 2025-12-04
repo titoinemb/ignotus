@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///turbopack:///[project]/src/app/styles/responsive/settings.scss","turbopack:///turbopack:///[project]/src/app/styles/settings.scss","turbopack:///turbopack:///[project]/src/app/styles/var.scss"],"sourcesContent":["@media (max-width: 650px) {\r\n  .app {\r\n    .list {\r\n      .section {\r\n        justify-content: space-between !important;\r\n      }\r\n    }\r\n  }\r\n}","@use \"./var.scss\";\r\n@import \"./responsive/settings.scss\";\r\n\r\n.app {\r\n  margin: 80px;\r\n\r\n  .title {\r\n    font-size: 2.5rem;\r\n    color: var.$royalClair;\r\n  }\r\n\r\n  .list {\r\n    margin-top: 20px;\r\n\r\n    .section {\r\n      display: flex;\r\n      align-items: center;\r\n      margin-top: 10px;\r\n\r\n\r\n      .title2 {\r\n        font-size: 20px;\r\n        margin-right: 10px;\r\n      }\r\n    }\r\n  }\r\n\r\n  button {\r\n    margin-top: 15px;\r\n  }\r\n}","$background: #0c0b0b;\r\n$royal: #153289;\r\n$royalDark: #132c77;\r\n$royalClair: #2754dd;"],"names":[],"mappings":"AAAA;EAGM;;;;;AAAN;;;;AAGE;;;;;AAKA;;;;AAGE;;;;;;AAME;;;;;AAOJ"}}]
+}

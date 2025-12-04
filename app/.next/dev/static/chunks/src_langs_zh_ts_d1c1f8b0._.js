@@ -1,0 +1,125 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([typeof document === "object" ? document.currentScript : undefined,
+"[project]/src/langs/zh.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>__TURBOPACK__default__export__
+]);
+const translations = {
+    header: {
+        text1: "首页",
+        text2: "目录",
+        text3: "设置",
+        text4: "我的账户",
+        text5: "下载"
+    },
+    footer: {
+        text1: "DMCA",
+        text2: "我们不托管任何文件，也不对任何内容的版权负责。如有版权问题或申诉，请直接联系托管该内容的个人或机构。",
+        text3: "社交网络"
+    },
+    home: {
+        text1: "信息",
+        text2: "动作",
+        text3: "动画",
+        text4: "冒险",
+        text5: "喜剧",
+        text6: "更多类型"
+    },
+    genres: [
+        "动作",
+        "动画",
+        "冒险",
+        "喜剧",
+        "犯罪",
+        "辩论",
+        "纪录片",
+        "剧情",
+        "儿童",
+        "家庭",
+        "奇幻",
+        "连续剧",
+        "战争",
+        "历史",
+        "恐怖",
+        "音乐",
+        "悬疑",
+        "政治",
+        "爱情",
+        "科幻",
+        "真人秀",
+        "电视电影",
+        "惊悚",
+        "西部"
+    ],
+    error404: {
+        title: "错误 404",
+        description: "这里什么都没有……",
+        btn: "返回菜单"
+    },
+    error500: {
+        title: "错误 500",
+        description: "网站当前正在维护中"
+    },
+    search: {
+        title: "在找什么特别的内容吗？",
+        input: "搜索电影、剧集、动漫..."
+    },
+    item: {
+        play: "播放",
+        btn1: "季数",
+        btn2: "相似内容",
+        btn3: "待看",
+        btn4: "演员表"
+    },
+    adblock: {
+        title: "检测到广告拦截器",
+        description: "我们提供由广告资助的免费服务，并尽量确保广告不具侵扰性。请关闭广告拦截器或订阅付费服务。"
+    },
+    watch: {
+        txt1: "画质",
+        txt2: "语言",
+        txt3: "字幕"
+    },
+    account: {
+        txt1: "登录",
+        txt2: "请输入您的凭证",
+        txt3: "创建账户",
+        txt4: "安全与隐私是我们的优先事项。我们不保留活动日志，也不收集个人信息。删除账户后，所有相关数据将被永久删除——不会保留任何与账户相关的信息。我们不保存您的 IP 地址。为增强匿名性，我们的网站可通过 Tor 网络的 .onion 服务以及 Lokinet 访问。这些选项为希望使用的用户提供额外的安全和匿名层。",
+        txt5: "⚠ 非常重要：请备份您的凭证 ⚠",
+        txt6: "已备份",
+        txt7: "备份成功",
+        txt8: "所有代码必须为 10 个字符",
+        txt9: "错误：代码不正确",
+        txt10: "账户",
+        txt11: "愿望清单",
+        txt12: "观看列表",
+        txt13: "会话",
+        txt14: "会话名称：",
+        txt15: "点击以删除",
+        txt16: "不活跃",
+        txt17: "有效期至：",
+        txt18: "高级状态：",
+        txt19: "删除我的账户"
+    },
+    settings: {
+        txt1: "设置",
+        txt2: "自动跳过片头",
+        txt3: "自动跳过片尾",
+        txt4: "无"
+    },
+    yes: "是",
+    no: "否",
+    download: {
+        title: "下载"
+    }
+};
+const __TURBOPACK__default__export__ = translations;
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+]);
+
+//# sourceMappingURL=src_langs_zh_ts_d1c1f8b0._.js.map

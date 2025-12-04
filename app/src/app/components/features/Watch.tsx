@@ -1,7 +1,7 @@
 import React from 'react';
 import { Loading, Error500, AntiAdBlock, SubTitle } from '../layout';
 import '../../styles/watch.scss';
-import "../../../scripts/watch";
+import "../../scripts/watch";
 import { pip, fullscreen, paramWindow, controlsBtn, settingsFunction } from '../../functions';
 import { Props } from '@types';
 import { Error404 } from ".";

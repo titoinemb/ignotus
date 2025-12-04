@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from 'react';
 import { parseSrt } from "../functions";
 import { SubtitlesState } from "@types";

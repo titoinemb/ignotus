@@ -1,0 +1,44 @@
+/* [project]/src/app/styles/loading.scss.css [app-client] (css) */
+.loadingBox {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  display: flex;
+}
+
+.loadingBox .custom-loader {
+  background-color: #0000;
+  background-image: radial-gradient(farthest-side, #766df4 90%, #0000), radial-gradient(farthest-side, #6f6d91 90%, #0000);
+  background-position: center, bottom;
+  background-repeat: no-repeat;
+  background-size: 32px 32px, 24px 24px;
+  background-attachment: scroll, scroll;
+  background-origin: padding-box, padding-box;
+  background-clip: border-box, border-box;
+  width: 140px;
+  height: 140px;
+  animation: 2s linear infinite s7;
+  position: relative;
+}
+
+.loadingBox .custom-loader:before {
+  content: "";
+  transform-origin: 50% calc(100% + 20px);
+  width: 16px;
+  height: 16px;
+  animation: inherit;
+  background: #e4e4ed;
+  border-radius: 50%;
+  margin: auto;
+  animation-duration: 1s;
+  position: absolute;
+  inset: auto 0 32px;
+}
+
+@keyframes s7 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+/*# sourceMappingURL=src_app_styles_loading_scss_css_bad6b30c._.single.css.map*/

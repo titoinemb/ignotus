@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/home.scss';
-import '../../../scripts/home';
+import '../../scripts/home';
 import { Loading, Error500 } from '../layout';
 import { Props } from '@types';
 import { useHome } from "../../hooks/useHome";

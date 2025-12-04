@@ -1,64 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { SubTitleProps, Cue } from "@types";
-import { parseSrt, sanitizeSubtitleHtml } from "../../functions";
+import React from 'react';
+import { SubTitleProps } from "@types";
+import { sanitizeSubtitleHtml } from "../../functions";
+import { useSubtitles } from "../../hooks/useSubTitle";
 import "../../styles/subTitle.scss";
 
 export const SubTitle: React.FC<SubTitleProps> = ({videoId, srt, srtUrl, offset = 0, className}) => {
-  const [cues, setCues]             = useState<Cue[]>([]);
-  const [activeText, setActiveText] = useState<string | null>(null);
-
-  const shouldShowOverlay = srt !== null && srtUrl !== null;
-
-  useEffect(() => {
-    let cancelled = false;
-    const load = async () => {
-      if (!shouldShowOverlay) {
-        setCues([]);
-        return;
-      }
-      if (srt) {
-        setCues(parseSrt(srt));
-        return;
-      }
-      if (srtUrl) {
-        try {
-          const res = await fetch(srtUrl);
-          if (!res.ok) { setCues([]); return; }
-          const txt = await res.text();
-          if (!cancelled) setCues(parseSrt(txt));
-        } catch (e) {
-          console.error(e);
-          if (!cancelled) setCues([]);
-        }
-      }
-    };
-    load();
-    return () => { cancelled = true; };
-  }, [srt, srtUrl, shouldShowOverlay]);
-
-  useEffect(() => {
-    const video = document.getElementById(videoId) as HTMLVideoElement | null;
-    if (!video) {
-      console.warn('Video element not found:', videoId);
-      return;
-    }
-
-    if (!shouldShowOverlay || cues.length === 0) {
-      setActiveText(null);
-      return;
-    }
-
-    let raf = 0;
-    const tick = () => {
-      const t = (video.currentTime || 0) + offset;
-      const cue = cues.find(c => t >= c.start && t <= c.end);
-      setActiveText(cue ? cue.text : null);
-      raf = requestAnimationFrame(tick);
-    };
-
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [videoId, cues, offset, shouldShowOverlay]);
+  const { activeText } = useSubtitles(srt, srtUrl, videoId, offset);
 
   return (
     <div
@@ -91,4 +38,4 @@ export const SubTitle: React.FC<SubTitleProps> = ({videoId, srt, srtUrl, offset 
       )}
     </div>
   );
-}
+};

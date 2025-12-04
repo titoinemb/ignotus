@@ -3,7 +3,7 @@ import '../../styles/footer.scss';
 import { Props } from "@types";
 import { donwloadUrl } from '../../functions';
 
-export const Footer: React.FC<Props> = ({ json, lang }) => {
+export const Footer: React.FC<Props> = ({ json }) => {
   return (
     <footer>
       <div className="box">

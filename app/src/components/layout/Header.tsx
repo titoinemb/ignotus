@@ -2,7 +2,7 @@ import React from 'react';
 import '../../styles/header.scss';
 import { Props } from "@types";
 
-export const Header: React.FC<Props> = ({json, lang}) => {
+export const Header: React.FC<Props> = ({json}) => {
   return (
     <header>
       <div className='content'>

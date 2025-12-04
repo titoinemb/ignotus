@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { Header, Footer } from '../app/components/layout';
-import { Account, Error404, Home, Item, Search, Settings, Watch } from "../app/components/features";
-import { initSettings } from '../app/functions';
+import { Header, Footer } from './components/layout';
+import { Account, Error404, Home, Item, Search, Settings, Watch } from "./components/features";
+import { initSettings } from './functions';
 import '../styles/all.scss';
 
 const App = () => {

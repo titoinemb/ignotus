@@ -10,7 +10,7 @@ export const Account: React.FC<Props> = ({ json, lang }) => {
   const { error, idsession, itemsData, listWishList, listwatchList, loading, premiumStatut, sessionsHtml, storageId, location } = useAccount(json);
 
   if (loading) return <Loading />;
-  if (error === 0) return <Error500 lang={lang} json={json} />;
+  if (error === true) return <Error500 lang={lang} json={json} />;
 
   let params = new URLSearchParams(location.search);
   let queryParams: { [key: string]: string } = {};
@@ -130,7 +130,7 @@ export const Account: React.FC<Props> = ({ json, lang }) => {
                   className="linkId"
                   id={item.token}
                   onClick={() => {
-                    deleteSession(item.token, storageId, index.toString());
+                    deleteSession(localStorage.getItem("session") || "", storageId, index.toString());
                   }}
                 >
                   <div className="title">{json.account.txt14} {item.name}</div>

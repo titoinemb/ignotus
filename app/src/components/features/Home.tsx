@@ -3,13 +3,13 @@ import '../../styles/home.scss';
 import '../../scripts/home';
 import { Loading, Error500 } from '../layout';
 import { Props } from '@types';
-import { useHome } from "../../hooks/useHome"
+import { useHome } from "../../hooks/useHome";
 
 export const Home: React.FC<Props> = ({ json, lang }) => {
   const { data, error, loading, listAction, listAdventure, listAnim, listCommedy } = useHome();
-
+  
   if (loading) return <Loading />;
-  if (error === null || data === null) return <Error500 lang={lang} json={json} />;
+  if (error === true || data === null) return <Error500 lang={lang} json={json} />;
 
   return (
     <div className="app">
@@ -52,9 +52,8 @@ export const Home: React.FC<Props> = ({ json, lang }) => {
             <button id='linkId' onClick={() => {
               let table = "series";
 
-              if (!data.data1[0].saisons) {
-                table = "movies";
-              };
+              if (!data.data1[0].saisons) table = "movies";
+
               window.location.href = "./item?t=" + table + "&i=" + data.data1[0]._id.$oid;
             }}>{json.home.text1}</button>
           </div>

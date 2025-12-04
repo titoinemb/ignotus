@@ -7,7 +7,7 @@ export const useAccount = (json: any) => {
   const [state, setState] = useState<AccountState>({
     idsession: null,
     loading: true,
-    error: null,
+    error: false,
     sessionsHtml: [],
     storageId: '',
     premiumStatut: '',
@@ -82,7 +82,7 @@ export const useAccount = (json: any) => {
         });
 
         if (!response.ok) {
-          return setState(s => ({ ...s, error: 0 }));
+          return setState(s => ({ ...s, error: true }));
         }
 
         if (localStorage.getItem('session')) {
@@ -96,12 +96,12 @@ export const useAccount = (json: any) => {
           });
 
           if (!response2.ok) {
-            return setState(s => ({ ...s, error: 0 }));
+            return setState(s => ({ ...s, error: true }));
           }
 
           const datarep2 = await response2.json();
           if (!datarep2 || datarep2.message !== "1") {
-            return setState(s => ({ ...s, error: 0 }));
+            return setState(s => ({ ...s, error: true }));
           }
 
           const raw = datarep2.datas.premium;
@@ -119,7 +119,7 @@ export const useAccount = (json: any) => {
         }
 
       } catch {
-        setState(s => ({ ...s, error: 0 }));
+        setState(s => ({ ...s, error: true }));
       } finally {
         setState(s => ({ ...s, loading: false }));
       }
@@ -131,7 +131,6 @@ export const useAccount = (json: any) => {
       cancelled = true;
     };
   }, [json.account]);
-
 
   useEffect(() => {
     let mounted = true;
@@ -165,7 +164,7 @@ export const useAccount = (json: any) => {
 
       } catch {
         if (mounted) {
-          setState(s => ({ ...s, error: 0 }));
+          setState(s => ({ ...s, error: true }));
         }
       }
     })();

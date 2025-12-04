@@ -1,89 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import '../../styles/search.scss'
 import { Loading, Error500 } from '../layout';
 import { Props } from '@types';
+import { useSearch } from "../../hooks/useSeach";
 
 export const Search: React.FC<Props> = ({json, lang}) => {
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<0 | null>(null);
-  const [listBase, setlistBase] = useState<any[]>([]);
-
-  let location = useLocation();
-  useEffect(() => {
-    let params = new URLSearchParams(location.search);
-    let queryParams: { [key: string]: string } = {};
-    let typingTimer: NodeJS.Timeout;
-
-    params.forEach((value, key) => {
-      queryParams[key] = value;
-    });
-
-    var query: string;
-
-    if (!queryParams.query) {
-      const charCode = Math.floor(Math.random() * 26) + 97;
-      query = String.fromCharCode(charCode);
-    } else {
-      query = queryParams.query;
-    };
-
-    const fetchData = async (query1: string) => {
-      try {
-        const response = await fetch('http://localhost:8080/search', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ search: query1 }),
-        });
-
-        if (!response.ok) {
-          return setError(0);
-        };
-
-        const datarep = await response.json();
-
-        if (!datarep) {
-          return setError(0);
-        };
-
-        await setlistBase(datarep.data);
-      } catch (error) {
-        setError(0);
-      } finally {
-        setLoading(false);
-      };
-    };
-
-    fetchData(query);
-
-    function onUserTyping() {
-      clearTimeout(typingTimer);
-
-      typingTimer = setTimeout(() => {
-        let inputElement = document.getElementById('searchQuery') as HTMLInputElement | null;
-
-        if (inputElement) {
-          let query2 = inputElement.value.trim();
-
-          if (query2.length === 0) return;
-
-          return fetchData(query2);
-        };
-      }, 1000);
-    };
-
-    setTimeout(() => {
-      let inputElement = document.getElementById('searchQuery') as HTMLInputElement;
-
-      if (inputElement) {
-        return inputElement.addEventListener('input', onUserTyping);
-      };
-    }, 1000);
-
-  }, [location.search]);
+  const { error, listBase, loading } = useSearch();
 
   if (loading) return <Loading />;
-  if (error === 0) return <Error500 lang={lang} json={json} />;
+  if (error === true) return <Error500 lang={lang} json={json} />;
 
   return (
     <div className='search'>

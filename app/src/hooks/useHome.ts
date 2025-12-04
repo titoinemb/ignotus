@@ -4,7 +4,7 @@ import { HomeData, HomeState } from "@types";
 export const useHome = () => {
   const [state, setState] = useState<HomeState>({
     loading: true,
-    error: null,
+    error: false,
     data: null,
     listAction: [],
     listAdventure: [],
@@ -23,28 +23,28 @@ export const useHome = () => {
         });
 
         if (!response.ok) {
-          setState({ ...state, error: 'Erreur lors de la récupération des données' });
+          setState({ ...state, error: true });
           return;
-        }
+        };
 
         let datarep: HomeData = await response.json();
 
         if (!datarep) {
-          setState({ ...state, error: 'Aucune donnée reçue' });
+          setState({ ...state, error: true });
           return;
-        }
+        };
 
         setState({
-          loading: false,
-          error: null,
+          error: false,
           data: datarep,
           listAction: datarep.data2,
           listAdventure: datarep.data4,
           listCommedy: datarep.data5,
           listAnim: datarep.data3,
+          loading: false,
         });
       } catch (error) {
-        setState({ ...state, loading: false, error: 'Erreur de réseau' });
+        setState({ ...state, loading: false, error: true });
       };
     };
 

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { parseSrt } from "../functions";
-import { Cue, SubtitlesState } from "@types";
+import { SubtitlesState } from "@types";
 
 export const useSubtitles = (srt: string | null | undefined, srtUrl: string | null | undefined, videoId: string, offset: number) => {
   const [state, setState] = useState<SubtitlesState>({
     cues: [],
     activeText: null,
     loading: true,
-    error: null,
+    error: false,
   });
 
   const shouldShowOverlay = srt !== null && srtUrl !== null;
@@ -17,30 +17,26 @@ export const useSubtitles = (srt: string | null | undefined, srtUrl: string | nu
 
     const loadCues = async () => {
       if (!shouldShowOverlay) {
-        setState({ cues: [], activeText: null, loading: false, error: null });
-        return;
-      }
+        return setState({ cues: [], activeText: null, loading: false, error: false });
+      };
 
       if (srt) {
-        setState({ ...state, cues: parseSrt(srt), loading: false });
-        return;
-      }
+        return setState({ ...state, cues: parseSrt(srt), loading: false });
+      };
 
       if (srtUrl) {
         try {
-          const res = await fetch(srtUrl);
-          if (!res.ok) {
-            console.error('Failed to fetch subtitles:', res.statusText);
-            setState({ ...state, cues: [], loading: false, error: 'Error fetching subtitles' });
-            return;
-          }
-          const txt = await res.text();
-          if (!cancelled) setState({ ...state, cues: parseSrt(txt), loading: false });
+          let res = await fetch(srtUrl);
+
+          if (!res.ok) return setState({ ...state, cues: [], loading: false, error: true });
+            
+          let txt = await res.text();
+
+          if (!cancelled) return setState({ ...state, cues: parseSrt(txt), loading: false });
         } catch (error) {
-          console.error('Error fetching subtitles:', error);
-          if (!cancelled) setState({ ...state, cues: [], loading: false, error: 'Error during fetch' });
-        }
-      }
+          if (!cancelled) return setState({ ...state, cues: [], loading: false, error: true });
+        };
+      };
     };
 
     loadCues();
@@ -52,12 +48,9 @@ export const useSubtitles = (srt: string | null | undefined, srtUrl: string | nu
     if (!video) {
       console.warn('Video element not found:', videoId);
       return;
-    }
+    };
 
-    if (!shouldShowOverlay || state.cues.length === 0) {
-      setState(prevState => ({ ...prevState, activeText: null }));
-      return;
-    }
+    if (!shouldShowOverlay || state.cues.length === 0) return setState(prevState => ({ ...prevState, activeText: null }));
 
     let raf = 0;
     const updateActiveText = () => {

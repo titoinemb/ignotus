@@ -1,176 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import { Loading, Error500, AntiAdBlock, SubTitle } from '../layout';
 import '../../styles/watch.scss';
 import "../../scripts/watch";
-import { pip, fullscreen, paramWindow, controlsBtn, settingsFunction, AdBlockDetector, formatTime } from '../../functions';
+import { pip, fullscreen, paramWindow, controlsBtn, settingsFunction } from '../../functions';
 import { Props } from '@types';
 import { Error404 } from "../features";
+import { useWatch } from "../../hooks/useWatch";
 
 export const Watch: React.FC<Props> = ({ json, lang }) => {
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<0 | null>(null);
-  const [error404, setError404] = useState<0 | null>(null);
-  const [videoUrl, setVideoUrl] = useState<string | null>(null);
-  const [adblockStatut, setAdblockStatut] = useState<boolean>(false);
-  const [langDispo, setLangDispo] = useState<any>([]);
-  const [settings, setSettings] = useState<any>('');
-  const [duration, setDuration] = useState(0);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [time, setTime] = useState<string>('00:00:00');
-  const [mySrt, setmySrt] = useState<string | null>(null);
-  const [totalTime, setTotalTime] = useState<string>('00:00:00');
-
-  const config = JSON.parse(localStorage.getItem("setting") || "[]");
-
-  const [quality, setQuality] = useState<string>(config.quality);
-
-  const location = useLocation();
-
-  let params = new URLSearchParams(location.search);
-  const queryParams: { [key: string]: string } = {};
-
-  params.forEach((value, key) => {
-    queryParams[key] = value;
-  });
-
-  (async () => {
-    setAdblockStatut(await AdBlockDetector());
-  })();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:8080/item', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ table: queryParams.t, id: queryParams.i }),
-        });
-
-        const datarep = await response.json();
-
-        if (datarep.message !== "1") return setError404(0);
-        if (!response.ok || !datarep) return setError(0);
-
-        let sessionStorage = localStorage.getItem('session');
-
-        if (sessionStorage) {
-          let response3 = await fetch('http://localhost:8080/account', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({ username: localStorage.getItem('username') as string, session: localStorage.getItem('session') as string }),
-          });
-
-          const datarep3 = await response3.json();
-
-          console.log(datarep3)
-
-          if (!response3.ok || !datarep3) return setError(0);
-          if (datarep3.message !== "1") return setError(0);
-
-          await setQuality(datarep3.data.settings.quality);
-          await setSettings(datarep3.data.settings);
-        } else {
-          setSettings(JSON.parse(localStorage.getItem('setting') as string));
-        };
-
-        let CCStorage = JSON.parse(localStorage.getItem('setting') as string).cc;
-
-        if(CCStorage !== "null") {
-
-          const url2 = `http://localhost/files/${datarep.data.data?.[lang].cc}`;
-
-          await setmySrt(url2);
-        };
-
-        if (queryParams.e) {
-          await setLangDispo(datarep.data.saisons[queryParams.e].episode[queryParams.e].data);
-        } else {
-          await setLangDispo(datarep.data.data);
-        };
-
-        const videoKey = datarep.data.data?.[lang]?.quality?.["p" + (quality).replace(/p$/, '')];
-
-        console.log(videoKey)
-
-        await setVideoUrl(`http://localhost/files/${videoKey}`);
-
-      } catch (err) {
-        console.log(err)
-        setError(0);
-      } finally {
-        setLoading(false);
-      };
-    };
-
-    fetchData();
-  }, [queryParams.i, queryParams.t, queryParams.e, queryParams.s, lang]);
-
-
-  useEffect(() => {
-    const video = document.getElementById("video-player") as HTMLVideoElement;
-
-    if (video) {
-      video.onloadedmetadata = () => {
-        setDuration(video.duration);
-        setTotalTime(formatTime(video.duration));
-      };
-
-      const updateCurrentTime = () => {
-        setCurrentTime(video.currentTime);
-
-        const rangeInput = document.querySelector('input[type="range"]') as HTMLInputElement;
-        const percentage = (video.currentTime / video.duration) * 100;
-        if (rangeInput) {
-          rangeInput.style.setProperty('--current-time', `${percentage}%`);
-        };
-
-        const remainingTime = video.currentTime;
-        const hours = Math.floor(remainingTime / 3600);
-        const minutes = Math.floor((remainingTime % 3600) / 60);
-        const seconds = Math.floor(remainingTime % 60);
-
-        const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-
-        setTime(formattedTime);
-      };
-
-      video.addEventListener('timeupdate', updateCurrentTime);
-
-      return () => {
-        video.removeEventListener('timeupdate', updateCurrentTime);
-      };
-    };
-    return;
-  }, [videoUrl]);
+  const { adblockStatut, currentTime, duration, error, error404, langDispo, loading, mySrt, settings, time, totalTime, videoUrl, handleRangeChange, queryParams } = useWatch(lang);
 
   if (loading) return <Loading />;
-  if (error === 0) return <Error500 lang={lang} json={json} />;
-  if (error404 === 0 || !videoUrl) return <Error404 lang={lang} json={json} />;
+  if (error === true) return <Error500 lang={lang} json={json} />;
+  if (error404 === true || !videoUrl) return <Error404 lang={lang} json={json} />;
   if (adblockStatut === true) return <AntiAdBlock lang={lang} json={json} />
-
-  const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newTime = Number(event.target.value);
-    setCurrentTime(newTime);
-
-    const video = document.getElementById("video-player") as HTMLVideoElement;
-    if (video) {
-      video.currentTime = newTime;
-
-      const rangeInput = event.target as HTMLInputElement;
-      const percentage = (newTime / video.duration) * 100;
-      rangeInput.style.setProperty('--current-time', `${percentage}%`);
-
-      const remainingTime = video.duration - newTime;
-      const hours = Math.floor(remainingTime / 3600);
-      const minutes = Math.floor((remainingTime % 3600) / 60);
-      const seconds = Math.floor(remainingTime % 60);
-
-      const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-
-      setTime(formattedTime);
-    };
-  };
 
   return (
     <div className="video-player">

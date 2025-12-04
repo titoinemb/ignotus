@@ -1,107 +1,15 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import '../../styles/item.scss';
 import { Loading } from '../layout';
-import { formatDate, findInTable, wishlist } from "../../functions";
+import { formatDate, wishlist } from "../../functions";
 import { Props } from '@types';
 import { Error404 } from "../features"
+import { useItem } from "../../hooks/useItem";
 
 export const Item: React.FC<Props> = ({ json, lang }) => {
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<0 | null>(null);
-  const [data, setData] = useState<any>(null);
-  const [saisonsselect1, setSaisonsSelect] = useState<any[]>([]);
-  //const [similarSelect, setSimililarSelect] = useState<any[]>([]);
-  const [castingsSelect, setCastingsSelect] = useState<any[]>([]);
-  const [wishlistOption, setwishlistOption] = useState<number>(1)
-  const [saisons, setsaisons] = useState<number>(0);
-  const [activeContent, setActiveContent] = useState("saisons");
-
-  let location = useLocation();
-  let params = new URLSearchParams(location.search);
-  let queryParams: { [key: string]: string } = {};
-
-  params.forEach((value, key) => {
-    queryParams[key] = value;
-  });
-
-  const contentBtn = (where: string) => {
-    setActiveContent(where);
-  };
-
-  useEffect(() => {
-    const fetchData = async (s: number) => {
-      try {
-        const response = await fetch('http://localhost:8080/item', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ table: queryParams.t, id: queryParams.i }),
-        });
-
-        if (!response.ok) {
-          return setError(0);
-        };
-
-        const datarep = await response.json();
-
-        if (!datarep) {
-          return setError(0);
-        };
-
-        if (localStorage.getItem('session')) {
-          let response2 = await fetch('http://localhost:8080/account', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({ username: localStorage.getItem('username') as string, session: localStorage.getItem('session') as string }),
-          });
-
-          if (!response2.ok) {
-            return setError(0);
-          };
-
-          const datarep2 = await response2.json();
-
-          if (!datarep2) {
-            return setError(0);
-          };
-
-          if (datarep2.msg === 0) return setError(0);
-
-          const wishlist = datarep2.data.wishlist;
-
-          if (findInTable(wishlist, { table: queryParams.t, id: queryParams.i })) {
-            setwishlistOption(2);
-          };
-        };
-
-        if(!datarep.data.saisons) {
-          await setActiveContent("castings")
-        }
-
-        await setCastingsSelect(datarep.data.person);
-        //await setSimililarSelect(datarep.data2);
-        await setSaisonsSelect(datarep.data.saisons);
-        await setData(datarep);
-      } catch (err) {
-        setError(0);
-        console.log(err)
-      } finally {
-        setLoading(false);
-      };
-    };
-    fetchData(0);
-
-    if (wishlistOption === 2) {
-      document.getElementById("check")!.style.display = "flex";
-    };
-  }, [queryParams.i, queryParams.t, wishlistOption]);
-
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    return setsaisons(parseInt(event.target.value));
-  };
+  const { activeContent, castingsSelect, contentBtn, data, error, handleChange, loading, saisons, queryParams, saisonsSelect, wishlistOption } = useItem();
 
   if (loading) return <Loading />;
-  if (error === 0) return <Error404 lang={lang} json={json} />;
+  if (error === true || data === null) return <Error404 lang={lang} json={json} />;
 
   return (
     <div className='item'>
@@ -152,7 +60,7 @@ export const Item: React.FC<Props> = ({ json, lang }) => {
               </button>
               {localStorage.getItem('session') && (
               <button id="linkId" className='wish' onClick={() => { wishlist(queryParams.t, queryParams.i); }}>
-                <svg id='check' style={{ display: "none" }} xmlns="http://www.w3.org/2000/svg" width="22px" height="22px" viewBox="0 0 24 24" fill="none">
+                <svg id='check' style={{ display: wishlistOption === 2 ? "flex" : "none" }} xmlns="http://www.w3.org/2000/svg" width="22px" height="22px" viewBox="0 0 24 24" fill="none">
                   <g>
                     <path id="Vector" d="M7 12L11.9497 16.9497L22.5572 6.34326M2.0498 12.0503L6.99955 17M17.606 6.39355L12.3027 11.6969" stroke="#fff" />
                   </g>
@@ -169,9 +77,6 @@ export const Item: React.FC<Props> = ({ json, lang }) => {
             <li id='saisons' style={{ display: data.data?.saisons ? "flex" : "none" }}>
               <button onClick={() => { contentBtn("saisons") }}>{json.item.btn1}</button>
             </li>
-            {/*<li className='li'>
-              <button onClick={() => { contentBtn("similar") }}>{json.item.btn2}</button>
-            </li> */}
             <li className='li'>
               <button onClick={() => { contentBtn("castings") }}>{json.item.btn4}</button>
             </li>
@@ -181,7 +86,7 @@ export const Item: React.FC<Props> = ({ json, lang }) => {
           <div id="episodesContent" style={{ display: data.data?.saisons ? activeContent === "saisons" ? "block" : "none" : "none" }}>
             <select name="saisons" id="saisonsSelect" onChange={handleChange}>
               <>
-                {saisonsselect1?.map((item, idx) => {
+                {saisonsSelect?.map((item, idx) => {
                   return (
                     <option key={idx} value={idx}>{item.name}</option>
                   );
@@ -190,7 +95,7 @@ export const Item: React.FC<Props> = ({ json, lang }) => {
             </select>
             <div className="episodes">
               <>
-                {saisonsselect1?.[saisons]?.episode?.map((episode: any, i: number) => {
+                {saisonsSelect?.[saisons]?.episode?.map((episode: any, i: number) => {
                   if (!episode) return null;
                   const targetI = data?.data?._id.$oid;
                   if (!targetI) return null;
@@ -220,31 +125,6 @@ export const Item: React.FC<Props> = ({ json, lang }) => {
               </>
             </div>
           </div>
-          {/*<div id="similarContent" className="similarcontent" style={{ display: activeContent === "similar" ? "flex" : "none" }}>
-            <ul>
-              <>
-                {similarSelect?.map((item, idx) => {
-                  const t = item.saisons ? 0 : 1;
-                  return (
-                    <li key={idx} id={item._id}>
-                      <div
-                        className="similar"
-                        onClick={() => (window.location.href = `/item?t=${t}&i=${item._id}`)}
-                        style={{ cursor: "pointer" }}
-                      >
-                        <div className="image">
-                          <div className="image2">
-                            {item.minipicture && <img src={item.minipicture} alt="logo" />}
-                          </div>
-                          {item.picture && <img className="sim" src={item.picture} alt="cover" />}
-                        </div>
-                      </div>
-                    </li>
-                  );
-                })}
-              </>
-            </ul>
-          </div> */}
           <div id="castingsContent" className="castingscontent" style={{ display: activeContent === "castings" ? "flex" : "none" }}>
             <ul>
               <>

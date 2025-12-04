@@ -10,7 +10,7 @@ export type HomeData = {
 
 export type HomeState = {
   loading: boolean;
-  error: string | null;
+  error: boolean;
   data: HomeData | null;
   listAction: any[];
   listAdventure: any[];
@@ -22,13 +22,13 @@ export type SubtitlesState = {
   cues: Cue[];
   activeText: string | null;
   loading: boolean;
-  error: string | null;
+  error: boolean;
 };
 
 export type AccountState = {
   idsession: string | null;
   loading: boolean;
-  error: 0 | null;
+  error: boolean;
   sessionsHtml: any[];
   storageId: string;
   premiumStatut: string;
@@ -36,4 +36,44 @@ export type AccountState = {
   listwatchList: any[];
   itemsData: ItemResponse[] | [];
   location: any;
+};
+
+export type ItemState = {
+  loading: boolean;
+  error: boolean;
+  data: any | null;
+  saisonsSelect: any[];
+  castingsSelect: any[];
+  wishlistOption: number;
+  saisons: number;
+  activeContent: string;
+};
+
+export type SearchSate = {
+  loading: boolean;
+  error: boolean;
+  listBase: any[];
+};
+
+export type SettingsState = {
+  loading: boolean;
+  error: boolean;
+  settingss: any,
+  idSession: string;
+};
+
+export type WatchState = {
+  loading: boolean;
+  error: boolean;
+  error404: boolean;
+  videoUrl: string | null;
+  adblockStatut: boolean;
+  langDispo: any;
+  settings: any;
+  duration: number;
+  currentTime: number;
+  time: string;
+  mySrt: string | null;
+  totalTime: string;
+  quality: string;
 };

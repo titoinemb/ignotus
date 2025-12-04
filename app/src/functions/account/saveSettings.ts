@@ -1,9 +1,11 @@
-export const saveSettings = async (username: string, session: string) => {
+export const saveSettings = async (username: string) => {
   const qualityEl = document.getElementById('qualitys') as HTMLSelectElement | null;
   const langEl = document.getElementById('lang') as HTMLSelectElement | null;
   const langCCEl = document.getElementById('langCC') as HTMLSelectElement | null;
   const skipIntroEl = document.getElementById('skipIntro') as HTMLSelectElement | null;
   const skipOutroEl = document.getElementById('skipoutro') as HTMLSelectElement | null;
+
+  let session = localStorage.getItem("session");
 
   const toBool = (s: string | null | undefined, defaultVal = false) => {
     if (s == null) return defaultVal;
@@ -29,9 +31,9 @@ export const saveSettings = async (username: string, session: string) => {
     },
   };
 
-  if (localStorage.getItem("session")) {
-    fetch('http://localhost:8080/account/edit', {
-      method: 'GET',
+  if (session) {
+    await fetch('http://localhost:8080/account/edit', {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -43,7 +45,7 @@ export const saveSettings = async (username: string, session: string) => {
     });
   };
 
-  localStorage.setItem("setting", JSON.stringify(payload));
-  window.location.reload();
+  await localStorage.setItem("setting", JSON.stringify(payload));
+  await window.location.reload();
   return;
 };

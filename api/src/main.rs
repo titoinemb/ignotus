@@ -50,7 +50,7 @@ async fn main() -> std::io::Result<()> {
       .route("/account/create",           web::post().to(apis::account::create::create))
       .route("/account/login",            web::post().to(apis::account::login::login))
       .route("/account/datas",            web::post().to(apis::account::datas::datas))
-      .route("/account/edit",             web::delete().to(apis::account::edit::edit))
+      .route("/account/edit",             web::post().to(apis::account::edit::edit))
       .route("/account/delete",           web::delete().to(apis::account::delete::delete))
       .route("/account/wishlist/add",     web::post().to(apis::account::wishlist::add::add))
       .route("/account/wishlist/remove",  web::post().to(apis::account::wishlist::remove::remove))
